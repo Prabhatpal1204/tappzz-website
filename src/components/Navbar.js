@@ -7,7 +7,8 @@ import Badge from "@mui/material/Badge";
 import { useSelector } from "react-redux";
 import LogoImage from "../images/tappzLogo2.png";
 import LogoGif from "../images/shopping-cart.gif";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { click } from "@testing-library/user-event/dist/click";
 
 const Container = styled.div`
   height: 60px;
@@ -79,6 +80,12 @@ const Item = styled.div`
 const Navbar = () => {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.users);
+  const navigate = useNavigate();
+  const searchHandel = (e) => {
+    if (e.key === "Enter") {
+      navigate(`/product-querry-result/${e.target.value}`);
+    }
+  };
   return (
     <Container>
       <Wrapper>
@@ -100,7 +107,7 @@ const Navbar = () => {
         <RightCenterContainer>
           <SearchContainer>
             <SearchIcon style={{ color: "gray", fontSize: 16 }} />
-            <Input />
+            <Input type="search" onKeyDown={searchHandel} />
           </SearchContainer>
         </RightCenterContainer>
 

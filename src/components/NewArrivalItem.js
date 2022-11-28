@@ -79,9 +79,9 @@ const NewArrivalItem = ({ item }) => {
     navigate("/product/" + item._id);
   };
   return (
-    <Container>
+    <Container onClick={disProduct}>
       <Circle />
-      <Image src={item.images[0].url} onClick={disProduct} />
+      <Image src={item.images[0].url} />
       <Info>
         <Icon bg="1995AD" onClick={() => handleAddToCart(item)}>
           <ShoppingCartIcon />

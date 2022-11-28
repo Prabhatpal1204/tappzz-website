@@ -15,8 +15,12 @@ const shippingSlice = createSlice({
       state.shipingInfo.push(action.payload);
       localStorage.setItem("shippingInfo", JSON.stringify(state.shipingInfo));
     },
+    clearShip(state, action) {
+      state.shipingInfo = [];
+      localStorage.setItem("shippingInfo", JSON.stringify(state.cartItems));
+    },
   },
 });
 
-export const { addShippingAddress } = shippingSlice.actions;
+export const { addShippingAddress, clearShip } = shippingSlice.actions;
 export default shippingSlice.reducer;

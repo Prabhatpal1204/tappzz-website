@@ -4,13 +4,16 @@ import { useSelector } from "react-redux";
 import "./ConfirmOrder.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Typography } from "@mui/material";
-import { useLoadingUserQuery } from "../../services/appApi";
+import {
+  useLoadingUserQuery,
+  useSlicePaymentMutation,
+} from "../../services/appApi";
 import { ColorRing } from "react-loader-spinner";
 const ConfirmOrder = () => {
   const shipping = useSelector((state) => state.shipping);
   const { shipingInfo } = shipping;
   const { cartItems, cartTotalAmount } = useSelector((state) => state.cart);
-
+  const [slicePayment] = useSlicePaymentMutation();
   const navigate = useNavigate();
   const { data, isLoading, isSuccess } = useLoadingUserQuery();
   console.log(shipingInfo[0]);
@@ -26,14 +29,49 @@ const ConfirmOrder = () => {
 
   const phoneNo = `${shipingInfo[0].phoneNo}`;
   const proceedToPayment = () => {
-    const data = {
-      subtotal,
-      shippingCharges,
-      tax,
-      totalPrice,
-    };
-    sessionStorage.setItem("orderInfo", JSON.stringify(data));
-    navigate("/payment");
+    slicePayment({
+      items: [
+        { id: 1, quantity: 3 },
+        { id: 2, quantity: 1 },
+      ],
+    })
+      .then((res) => {
+        window.location.href = res.data.url;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // fetch("/api/v1/create-checkout-session", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   credentials: "include",
+    //   body: JSON.stringify({
+    //     items: [
+    //       { id: 1, quantity: 3 },
+    //       { id: 2, quantity: 1 },
+    //     ],
+    //   }),
+    // })
+    //   .then((res) => {
+    //     if (res.ok) return res.json();
+    //     return res.json().then((json) => Promise.reject(json));
+    //   })
+    //   .then(({ url }) => {
+    //     window.location = url;
+    //   })
+    //   .catch((e) => {
+    //     console.error(e.error);
+    //   });
+    // const data = {
+    //   subtotal,
+    //   shippingCharges,
+    //   tax,
+    //   totalPrice,
+    // };
+    // sessionStorage.setItem("orderInfo", JSON.stringify(data));
+    // navigate("/payment");
   };
 
   return (

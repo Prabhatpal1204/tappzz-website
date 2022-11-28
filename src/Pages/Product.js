@@ -5,6 +5,9 @@ import styled from "styled-components";
 import { useParams } from "react-router";
 import { useGetSingleProductQuery } from "../services/appApi";
 import { ColorRing } from "react-loader-spinner";
+import { useDispatch } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
+import { addToCart, decreaseCart } from "../features/cartSlice";
 const Container = styled.div``;
 
 const Wrapper = styled.div`
@@ -137,8 +140,22 @@ const Item = styled.div`
   }
 `;
 const Product = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
-
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    toast("Added to Cart", {
+      icon: "😊",
+      style: { background: "#97eecc" },
+    });
+  };
+  // const handleDecreaseCart = (product) => {
+  //   dispatch(decreaseCart(product));
+  //   toast("Cart Decreased", {
+  //     icon: "😒",
+  //     style: { background: "#f84949" },
+  //   });
+  // };
   const [count, setCount] = React.useState(1);
   const { data, isLoading } = useGetSingleProductQuery(id);
   console.log(data);
@@ -185,7 +202,9 @@ const Product = () => {
                 </Filter>
               </FilterContainer>
               <AddContainer>
-                <Button>ADD TO CART</Button>
+                <Button onClick={() => handleAddToCart(data.product)}>
+                  ADD TO CART
+                </Button>
                 <AmountContainer>
                   <Item>
                     <RemoveIcon onClick={decrement} />
@@ -198,6 +217,7 @@ const Product = () => {
               </AddContainer>
             </InfoContainer>
           </Wrapper>
+          <Toaster />
         </Container>
       )}
     </>

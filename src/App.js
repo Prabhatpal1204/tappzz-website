@@ -13,6 +13,7 @@ import ConfirmOrder from "./components/Cart/ConfirmOrder";
 import Payment from "./components/Cart/Payment";
 import OrderSuccess from "./components/Cart/OrderSuccess";
 import Product from "./Pages/Product";
+import ProductList from "./Pages/ProductList";
 const App = () => {
   const { data } = useLoadingUserQuery();
   console.log(data);
@@ -31,6 +32,12 @@ const App = () => {
         <Route exact path="/payment" element={<Payment />} />
         <Route exact path="/product/:id" element={<Product />} />
         <Route exact path="/order-success" element={<OrderSuccess />} />
+        <Route
+          path="/product-querry-result/:keyword"
+          element={<ProductList />}
+        />
+        <Route path="/category/:cate" element={<ProductList />} />
+        <Route path="/product-querry-result/" element={<ProductList />} />
       </Routes>
       <Footer />
     </Router>

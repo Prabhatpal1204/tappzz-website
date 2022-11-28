@@ -27,6 +27,23 @@ export const appApi = createApi({
         body,
       }),
     }),
+    getProductList: builder.query({
+      query: ({ currentPage, keyword, price }) =>
+        `/products?page=${currentPage}&keyword=${keyword}&price[gte]=${price[0]}&price[lte]=${price[1]}`,
+    }),
+    getProductCategory: builder.query({
+      query: (category) => `/products?category=${category}`,
+    }),
+    getProductBycategory: builder.query({
+      query: (category) => `/products?category=${category}`,
+    }),
+    slicePayment: builder.mutation({
+      query: (body) => ({
+        url: "/create-checkout-session",
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
@@ -36,4 +53,8 @@ export const {
   useLoadingUserQuery,
   useGetSingleProductQuery,
   useCreateOrderMutation,
+  useGetProductListQuery,
+  useLazyGetProductCategoryQuery,
+  useGetProductBycategoryQuery,
+  useSlicePaymentMutation,
 } = appApi;

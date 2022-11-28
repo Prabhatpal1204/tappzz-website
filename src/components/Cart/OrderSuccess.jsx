@@ -4,11 +4,13 @@ import "./orderSuccess.css";
 import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { clearCart } from "../../features/cartSlice";
+import { clearShip } from "../../features/shippingSlice";
 import { useDispatch } from "react-redux";
 const OrderSuccess = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(clearCart());
+    dispatch(clearShip());
   }, [dispatch]);
 
   return (

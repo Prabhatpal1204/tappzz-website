@@ -14,6 +14,10 @@ const productSlice = createSlice({
       appApi.endpoints.getProducts.matchFulfilled,
       (_, { payload }) => payload
     );
+    builder.addMatcher(
+      appApi.endpoints.getProductList.matchFulfilled,
+      (_, { payload }) => payload
+    );
   },
 });
 

@@ -1,0 +1,162 @@
+
+.productlist-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%   !important;
+    height: 100%;
+    padding: 30px 50px 20px 50px;
+    box-sizing: border-box;
+    background-color: #F1F1F2;
+    justify-content : space-around;
+  }
+  .filter-container{
+     min-width: 200px;
+  }
+  
+  .main_content {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    margin: 50px auto;
+    padding: 50px 0 0;
+    box-sizing: border-box;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .main_content h3 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #2d343e;
+    font-size: 10.5vw;
+  }
+  
+  .main_content .card {
+    width: 30%;
+    border-radius: 15px;
+    flex-direction: column;
+    position: relative;
+    transform: scale(0.8);
+    transition: all .3s ease-in-out;
+    margin-bottom: 50px;
+  }
+  
+  .main_content .card .card_img {
+    margin-top: -5vw;
+  }
+  
+  .main_content .card .card_img img {
+    width: 200px;
+  }
+  
+  .main_content .card .card_header {
+    flex-direction: column;
+    color: black;
+    margin: 25px 0;
+  }
+  
+  .main_content .card .card_header h2 {
+    font-size: 18px;
+  }
+  
+  .main_content .card .card_header p {
+    font-size: 14px;
+    text-align: center;
+    color: black;
+    margin: 8px 0;
+  }
+  
+  .main_content .card .card_header .price {
+    font-size: 25px;
+    color: #1995AD;
+  }
+  
+  .main_content .card .card_header .price span {
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .main_content .card:hover {
+    background-color: #A1D6E2;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  
+  .main_content .card:hover .btn {
+    background-color: #1995AD;
+    color: #fff;
+  }
+  
+  .btn {
+    width: 130px;
+    height: 35px;
+    font-size: 14px;
+    border-radius: 35px;
+    background-color: #2d343e;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    position: relative;
+    transition: background-color .3s ease;
+    overflow: hidden;
+  }
+  
+  .wrapper{
+    margin-top: 90px;
+    height: 550px;
+    width: 350px;
+    padding: 20px 25px 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+  }
+  header h2{
+    font-size: 24px;
+    font-weight: 600;
+  }
+  header p{
+    margin-top: 5px;
+    font-size: 16px;
+  }
+  .categories{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: space-around;
+  
+  }
+  .categories > div {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+  .categories > p {
+    font-weight: bold;
+    font-family: "Varela Round";
+  }
+  
+  .price-container{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: space-around;
+  
+  }
+  .price-container > div {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+  .price-container > p {
+    font-weight: bold;
+    font-size: larger;
+    font-family: "Varela Round";
+  }
+  
