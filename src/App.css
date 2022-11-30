@@ -44,6 +44,13 @@
   display: flex;
   align-items: center;
 }
+.my-order-con{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 10px;
+
+}
 .bag-quantity {
   display: flex;
   align-items: center;

@@ -17,7 +17,7 @@ const shippingSlice = createSlice({
     },
     clearShip(state, action) {
       state.shipingInfo = [];
-      localStorage.setItem("shippingInfo", JSON.stringify(state.cartItems));
+      localStorage.setItem("shippingInfo", JSON.stringify(state.shipingInfo));
     },
   },
 });

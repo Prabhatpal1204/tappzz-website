@@ -1,0 +1,32 @@
+.table-div >table{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;;
+    z-index: 2;
+    width: 100%; 
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-shadow: 0 2px 15px rgba(64,64,64,.7);
+    border-radius: 10px;
+
+}
+.table-div{
+    border-radius: 50px;
+    width: 80%;
+}
+.table-div > table > td,th{
+    border-bottom:1px #F1F1F2 solid;
+    padding: 15px 20px;
+    text-align: center;
+}
+.table-div > table > thead > tr >  th{
+    background-color: #1995AD;
+    color: #fafafa;
+    font-weight: bold;
+    text-transform: uppercase;
+   
+}
+tr:hover{
+    background-color: #F1F1F2;
+    transform: scale(1.02);
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8px rgba(0,0,0,0.2);
+}

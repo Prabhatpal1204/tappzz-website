@@ -28,12 +28,18 @@ const ConfirmOrder = () => {
   const address = `${shipingInfo[0].address}, ${shipingInfo[0].city}, ${shipingInfo[0].state}, ${shipingInfo[0].pinCode}, ${shipingInfo[0].country}`;
 
   const phoneNo = `${shipingInfo[0].phoneNo}`;
+  console.log(cartItems);
   const proceedToPayment = () => {
+    const data = {
+      subtotal,
+      shippingCharges,
+      tax,
+      totalPrice,
+    };
+    sessionStorage.setItem("orderInfo", JSON.stringify(data));
+    // navigate("/payment");
     slicePayment({
-      items: [
-        { id: 1, quantity: 3 },
-        { id: 2, quantity: 1 },
-      ],
+      cartItems,
     })
       .then((res) => {
         window.location.href = res.data.url;
@@ -64,14 +70,6 @@ const ConfirmOrder = () => {
     //   .catch((e) => {
     //     console.error(e.error);
     //   });
-    // const data = {
-    //   subtotal,
-    //   shippingCharges,
-    //   tax,
-    //   totalPrice,
-    // };
-    // sessionStorage.setItem("orderInfo", JSON.stringify(data));
-    // navigate("/payment");
   };
 
   return (

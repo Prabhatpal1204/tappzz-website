@@ -15,6 +15,10 @@ const userSlice = createSlice({
       appApi.endpoints.loadingUser.matchFulfilled,
       (_, { payload }) => payload
     );
+    builder.addMatcher(
+      appApi.endpoints.logout.matchFulfilled,
+      (_, { payload }) => payload
+    );
   },
 });
 

@@ -89,7 +89,7 @@
     color: #fff;
   }
   
-  .btn {
+  /* .btn {
     width: 130px;
     height: 35px;
     font-size: 14px;
@@ -100,7 +100,7 @@
     position: relative;
     transition: background-color .3s ease;
     overflow: hidden;
-  }
+  } */
   
   .wrapper{
     margin-top: 90px;

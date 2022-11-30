@@ -11,6 +11,7 @@ import {
   useGetProductsQuery,
   useLazyGetProductCategoryQuery,
   useGetProductBycategoryQuery,
+  useGetCategoryMutation,
 } from "../services/appApi";
 import { ColorRing } from "react-loader-spinner";
 import { useParams } from "react-router";
@@ -19,7 +20,8 @@ const categories = ["Casual", "Kids", "Sports", "Western", "Ethnic"];
 const ProductList = () => {
   const { data: ealry, isLoading } = useGetProductsQuery();
   // const [getProductCategory] = useGetProductCategoryMutation();
-  const [getCat] = useLazyGetProductCategoryQuery();
+  // const [getCategory] = useGetCategoryMutation();
+  const [getCat, { refetch }] = useLazyGetProductCategoryQuery();
   const { resultPerPage, productsCount, filteredProductsCount } = useSelector(
     (state) => state.products
   );
@@ -53,7 +55,10 @@ const ProductList = () => {
     if (e.target.checked) {
       try {
         const res = await getCat(category.toLowerCase());
+        // const cat = category.toLowerCase();
+        // const result = await getCategory({ cat });
         setProduct(res.data);
+        // console.log(result.data);
       } catch (error) {
         console.log(error);
       }

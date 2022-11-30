@@ -1,0 +1,24 @@
+.Customers{
+    margin-top: 47px;
+}
+.TableContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.Title{
+
+}
+@media screen and (max-width: 1200px) {
+    .Customers{
+        justify-content: flex-start;
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px)
+{
+    .Customers{
+        align-items: center;
+    }
+}

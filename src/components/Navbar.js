@@ -8,8 +8,7 @@ import { useSelector } from "react-redux";
 import LogoImage from "../images/tappzLogo2.png";
 import LogoGif from "../images/shopping-cart.gif";
 import { Link, useNavigate } from "react-router-dom";
-import { click } from "@testing-library/user-event/dist/click";
-
+import { useLogoutMutation } from "../services/appApi";
 const Container = styled.div`
   height: 60px;
   margin-bottom: 1.5em;
@@ -81,10 +80,16 @@ const Navbar = () => {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.users);
   const navigate = useNavigate();
+  const [logout] = useLogoutMutation();
   const searchHandel = (e) => {
     if (e.key === "Enter") {
       navigate(`/product-querry-result/${e.target.value}`);
     }
+  };
+  const handelLogout = () => {
+    logout().then((res) => {
+      window.location.reload();
+    });
   };
   return (
     <Container>
@@ -112,7 +117,7 @@ const Navbar = () => {
         </RightCenterContainer>
 
         <RightContainer>
-          {!user.success && (
+          {!user.user && (
             <>
               <Link to="/register">
                 <NavTitle>REGISTER</NavTitle>
@@ -122,6 +127,9 @@ const Navbar = () => {
               </Link>
             </>
           )}
+          {user.user ? (
+            <NavTitle onClick={handelLogout}>LOGOUT</NavTitle>
+          ) : null}
           <Item>
             <Link to="/cart">
               <Badge badgeContent={cart.cartItems.length} color="primary">
@@ -130,11 +138,7 @@ const Navbar = () => {
             </Link>
           </Item>
           <Item>
-            {user.success ? (
-              <AccountCircleIcon style={{ fontSize: 32 }} />
-            ) : (
-              <></>
-            )}
+            {user.user ? <AccountCircleIcon style={{ fontSize: 32 }} /> : <></>}
           </Item>
         </RightContainer>
       </Wrapper>

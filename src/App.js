@@ -14,9 +14,19 @@ import Payment from "./components/Cart/Payment";
 import OrderSuccess from "./components/Cart/OrderSuccess";
 import Product from "./Pages/Product";
 import ProductList from "./Pages/ProductList";
+import MyOrder from "./Pages/MyOrder";
+import Admin from "./Pages/Admin";
+import MainDash from "./components/adminComponents/MainDash/MainDash";
+import Customers from "./components/adminComponents/Customers/Customers";
+import Products from "./components/adminComponents/Products/Products.jsx";
+import Register from "./Pages/Register";
 const App = () => {
   const { data } = useLoadingUserQuery();
-  console.log(data);
+  // const [admin, setAdmin] = React.useState(false);
+  // console.log(data);
+  // if (data?.user.role === "admin") {
+  //   setAdmin(true);
+  // }
   return (
     <Router>
       <Announcement />
@@ -32,12 +42,21 @@ const App = () => {
         <Route exact path="/payment" element={<Payment />} />
         <Route exact path="/product/:id" element={<Product />} />
         <Route exact path="/order-success" element={<OrderSuccess />} />
+        <Route exact path="/orders" element={<MyOrder />} />
+        <Route exact path="/register" element={<Register />} />
         <Route
           path="/product-querry-result/:keyword"
           element={<ProductList />}
         />
         <Route path="/category/:cate" element={<ProductList />} />
         <Route path="/product-querry-result/" element={<ProductList />} />
+        {data?.success && data?.user.role === "admin" && (
+          <Route path="/admin/*" element={<Admin />}>
+            {/* <Route exact path="dashboard" element={<MainDash />} />
+            <Route exact path="customers" element={<Customers />} />
+            <Route exact path="products" element={<Products />} /> */}
+          </Route>
+        )}
       </Routes>
       <Footer />
     </Router>

@@ -1,0 +1,51 @@
+.Products{
+    margin-top: 47px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+.tabel-container{
+    overflow-y: scroll;
+}
+.TableContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;                                       
+}
+
+.header-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.addNew-btn{
+    width: 120px;
+    height: 40px;
+}
+.dialog-img{
+    width: 30%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.dialog-flex{
+    flex: 1;
+    margin-left: 30px;
+}
+@media screen and (max-width: 1200px) {
+    .Products{
+        justify-content:flex-start;
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px)
+{
+    .Products{
+        align-items: center;
+    }
+}
