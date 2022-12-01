@@ -1,0 +1,16 @@
+.not-con{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+
+}
+.not-con > .btn{
+    background-color: #1995AD;
+    color:white;
+}
+.not-con > .btn:hover{
+    background-color: #A1D6E2;
+    color:black;
+}                               

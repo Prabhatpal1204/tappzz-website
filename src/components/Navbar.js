@@ -91,6 +91,9 @@ const Navbar = () => {
       window.location.reload();
     });
   };
+  const handelMyorders = () => {
+    navigate("/orders");
+  };
   return (
     <Container>
       <Wrapper>
@@ -106,7 +109,9 @@ const Navbar = () => {
           <NavTitle>KIDS</NavTitle>
           <NavTitle>HOME & LIVING</NavTitle>
           <NavTitle>BEAUTY</NavTitle>
-          <NavTitle>CONTACT US</NavTitle>
+          <Link to="/contact-us">
+            <NavTitle>CONTACT US</NavTitle>
+          </Link>
         </LeftCenterContainer>
 
         <RightCenterContainer>
@@ -128,7 +133,11 @@ const Navbar = () => {
             </>
           )}
           {user.user ? (
-            <NavTitle onClick={handelLogout}>LOGOUT</NavTitle>
+            <>
+              {" "}
+              <NavTitle onClick={handelMyorders}>ORDERS</NavTitle>
+              <NavTitle onClick={handelLogout}>LOGOUT</NavTitle>
+            </>
           ) : null}
           <Item>
             <Link to="/cart">

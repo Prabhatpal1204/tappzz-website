@@ -16,10 +16,9 @@ import Product from "./Pages/Product";
 import ProductList from "./Pages/ProductList";
 import MyOrder from "./Pages/MyOrder";
 import Admin from "./Pages/Admin";
-import MainDash from "./components/adminComponents/MainDash/MainDash";
-import Customers from "./components/adminComponents/Customers/Customers";
-import Products from "./components/adminComponents/Products/Products.jsx";
+import ContactUs from "./Pages/ContactUs";
 import Register from "./Pages/Register";
+import NotFound from "./Pages/NotFound";
 const App = () => {
   const { data } = useLoadingUserQuery();
   // const [admin, setAdmin] = React.useState(false);
@@ -44,6 +43,7 @@ const App = () => {
         <Route exact path="/order-success" element={<OrderSuccess />} />
         <Route exact path="/orders" element={<MyOrder />} />
         <Route exact path="/register" element={<Register />} />
+        <Route exact path="/contact-us" element={<ContactUs />} />
         <Route
           path="/product-querry-result/:keyword"
           element={<ProductList />}
@@ -57,6 +57,7 @@ const App = () => {
             <Route exact path="products" element={<Products />} /> */}
           </Route>
         )}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </Router>

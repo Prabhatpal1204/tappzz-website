@@ -15,7 +15,14 @@ import {
 } from "../services/appApi";
 import { ColorRing } from "react-loader-spinner";
 import { useParams } from "react-router";
-const categories = ["Casual", "Kids", "Sports", "Western", "Ethnic"];
+const categories = [
+  "Casual",
+  "Kids",
+  "Sports",
+  "Western",
+  "Ethnic",
+  "ActiveWear",
+];
 
 const ProductList = () => {
   const { data: ealry, isLoading } = useGetProductsQuery();

@@ -46,9 +46,10 @@
 }
 .my-order-con{
   display: flex;
-  align-items: center;
+  align-items: Start;
   justify-content: center;
   border: 10px;
+  min-height: 400px;
 
 }
 .bag-quantity {

@@ -10,6 +10,8 @@ import {
 import "../App.css";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import Lottie from "react-lottie";
+import animationData from "../lottie/shoppingCart.json";
 // import PayButton from "./Paybutton";
 // import userEvent from "@testing-library/user-event";
 const Cart = () => {
@@ -49,11 +51,22 @@ const Cart = () => {
       navigate("/login");
     }
   };
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
   return (
     <div className="cart-container">
       <h2>Shopping Cart</h2>
       {cart.cartItems.length === 0 ? (
         <div className="cart-empty">
+          <div>
+            <Lottie options={defaultOptions} height={400} width={400} />
+          </div>
           <p>Your cart is currently empty</p>
           <div className="start-shopping">
             <Link to="/">

@@ -7,7 +7,7 @@
     padding: 30px 50px 20px 50px;
     box-sizing: border-box;
     background-color: #F1F1F2;
-    justify-content : space-around;
+    justify-content : space-between;
   }
   .filter-container{
      min-width: 200px;
@@ -20,7 +20,7 @@
     margin: 50px auto;
     padding: 50px 0 0;
     box-sizing: border-box;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
   }
   
