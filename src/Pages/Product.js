@@ -7,7 +7,7 @@ import { useGetSingleProductQuery } from "../services/appApi";
 import { ColorRing } from "react-loader-spinner";
 import { useDispatch } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
-import { addToCart, decreaseCart } from "../features/cartSlice";
+import { addToCart } from "../features/cartSlice";
 const Container = styled.div``;
 
 const Wrapper = styled.div`
@@ -77,7 +77,7 @@ const FilterColor = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 30%;
-  background-color: ${(props) => props.color};
+  background-color: ₹{(props) => props.color};
   margin: 0px 7px 0px 10px;
   cursor: pointer;
   transition: all 0.5s ease;
@@ -182,7 +182,7 @@ const Product = () => {
             <InfoContainer>
               <Title>{data.product.name}</Title>
               <Desc>{data.product.description}</Desc>
-              <Price>$ {data.product.price}</Price>
+              <Price>₹ {data.product.price}</Price>
               <FilterContainer>
                 <Filter>
                   <FilterTitle>COLOR</FilterTitle>
